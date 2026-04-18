@@ -8,7 +8,7 @@ function AdminProducts() {
   const token = localStorage.getItem('token');
 
   const fetchProducts = async () => {
-    const res = await axios.get('http://localhost:5000/api/products');
+    const res = await axios.get('https://ecommerce-bcy7.onrender.com/api/products');
     setProducts(res.data);
   };
 
@@ -20,10 +20,10 @@ function AdminProducts() {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/products/${editId}`, formData, { headers: { Authorization: `Bearer ${token}` } });
+        await axios.put(`https://ecommerce-bcy7.onrender.com/api/products/${editId}`, formData, { headers: { Authorization: `Bearer ${token}` } });
         setEditId(null);
       } else {
-        await axios.post('http://localhost:5000/api/products', formData, { headers: { Authorization: `Bearer ${token}` } });
+        await axios.post('https://ecommerce-bcy7.onrender.com/api/products', formData, { headers: { Authorization: `Bearer ${token}` } });
       }
       setFormData({ name: '', description: '', price: '', category: 'Electronics', image: '', stock: '' });
       fetchProducts();
@@ -39,7 +39,7 @@ function AdminProducts() {
 
   const handleDelete = async (id) => {
     if (window.confirm('Delete this product?')) {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://ecommerce-bcy7.onrender.com/api/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       fetchProducts();
     }
   };

@@ -6,7 +6,7 @@ function AdminOrders() {
   const token = localStorage.getItem('token');
 
   const fetchOrders = async () => {
-    const res = await axios.get('http://localhost:5000/api/orders', {
+    const res = await axios.get('https://ecommerce-bcy7.onrender.com/api/orders', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setOrders(res.data);
@@ -15,7 +15,7 @@ function AdminOrders() {
   useEffect(() => { fetchOrders(); }, []);
 
   const updateStatus = async (id, status) => {
-    await axios.put(`http://localhost:5000/api/orders/${id}`, { status }, {
+    await axios.put(`https://ecommerce-bcy7.onrender.com/api/orders/${id}`, { status }, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchOrders();

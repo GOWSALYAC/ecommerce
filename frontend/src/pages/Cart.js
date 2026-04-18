@@ -14,7 +14,7 @@ function Cart() {
     if (!address) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/orders', {
+      await axios.post('https://ecommerce-bcy7.onrender.com/api/orders', {
         items: cart.map(item => ({
           product: item._id,
           name: item.name,

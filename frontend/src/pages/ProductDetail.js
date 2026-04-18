@@ -10,7 +10,7 @@ function ProductDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/products/${id}`)
+    axios.get(`https://ecommerce-bcy7.onrender.com/api/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.log(err));
   }, [id]);
